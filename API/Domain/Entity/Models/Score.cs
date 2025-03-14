@@ -14,7 +14,8 @@ public class Score
     {
         Console.Write($"O score {ScoreAnime} ");
     }
-
+    
+    // Constructor
     public Score(Guid idScore, int scoreAnime, User user, int sumScore, int popularity)
     {
         IdScore = idScore;
