@@ -34,3 +34,17 @@
 /home/luiz/Área de trabalho/ApiAnime/API/obj/Debug/net9.0/API.pdb
 /home/luiz/Área de trabalho/ApiAnime/API/obj/Debug/net9.0/API.genruntimeconfig.cache
 /home/luiz/Área de trabalho/ApiAnime/API/obj/Debug/net9.0/ref/API.dll
+/home/luiz/Área de trabalho/ApiAnime/API/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.dll
+/home/luiz/Área de trabalho/ApiAnime/API/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/home/luiz/Área de trabalho/ApiAnime/API/bin/Debug/net9.0/Microsoft.Extensions.Caching.Abstractions.dll
+/home/luiz/Área de trabalho/ApiAnime/API/bin/Debug/net9.0/Microsoft.Extensions.Caching.Memory.dll
+/home/luiz/Área de trabalho/ApiAnime/API/bin/Debug/net9.0/Microsoft.Extensions.DependencyInjection.dll
+/home/luiz/Área de trabalho/ApiAnime/API/bin/Debug/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/home/luiz/Área de trabalho/ApiAnime/API/bin/Debug/net9.0/Microsoft.Extensions.Logging.dll
+/home/luiz/Área de trabalho/ApiAnime/API/bin/Debug/net9.0/Microsoft.Extensions.Logging.Abstractions.dll
+/home/luiz/Área de trabalho/ApiAnime/API/bin/Debug/net9.0/Microsoft.Extensions.Options.dll
+/home/luiz/Área de trabalho/ApiAnime/API/bin/Debug/net9.0/Microsoft.Extensions.Primitives.dll
+/home/luiz/Área de trabalho/ApiAnime/API/bin/Debug/net9.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/home/luiz/Área de trabalho/ApiAnime/API/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Relational.dll
+/home/luiz/Área de trabalho/ApiAnime/API/bin/Debug/net9.0/Npgsql.dll
+/home/luiz/Área de trabalho/ApiAnime/API/bin/Debug/net9.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
