@@ -16,12 +16,22 @@ public class User
 
     //DateTime
     public DateTime BirthDate { get; set; } //
-
+    
     //Listas
     public List<Anime> Favorites { get; set; } = new List<Anime>();
     
     //Enum
     public Rating Rating { get; set; }
-    
-    
+
+    public User(Guid idUser, string firstName, string lastName, string username, string email, string password, DateTime birthDate, Rating rating)
+    {
+        IdUser = idUser;
+        FirstName = firstName;
+        LastName = lastName;
+        Username = username;
+        Email = email;
+        Password = password;
+        BirthDate = birthDate;
+        Rating = rating;
+    }
 }

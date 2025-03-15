@@ -32,17 +32,18 @@ public class Anime
     public List<Characters> Characters { get; set; } =  new List<Characters>(); //
     public List<GenreAnime> Genres { get; set; } =  new List<GenreAnime>();//
     public List<Producer> Producers { get; set; } =  new List<Producer>(); //
+    public List<Producer>  Studios   { get; set; } =  new List<Producer>();
     
     //Classes
     
     public Adaptation Adaptation { get; set; }
     public Premiered Premiered { get; set; }
     public Aired Aired { get; set; }
+
     
     //Enum
     public Demographic Demographic{ get; set; }
     public Source source { get; set; }
-    public Studios Studios  { get; set; }
     public Rating Rating { get; set; }
     public Licensors Licensors  { get; set; } // quem tem a licença
     public Status Status { get; set; }
@@ -52,4 +53,31 @@ public class Anime
 
     //Metodos
     
+    
+    
+    // Constructor
+    public Anime(Guid idAnime, string nameJapanese, string nameEnglish, string namePortugues, string synopsis, string synonyms, int episodes, int durationEps, DateTime dateStar, DateTime dateEnd, Adaptation adaptation, Premiered premiered, Aired aired, Demographic demographic, Source source, Rating rating, Licensors licensors, Status status, Themes theme, Season season, TypeDisplay typeDisplay)
+    {
+        IdAnime = idAnime;
+        NameJapanese = nameJapanese;
+        NameEnglish = nameEnglish;
+        NamePortugues = namePortugues;
+        Synopsis = synopsis;
+        Synonyms = synonyms;
+        Episodes = episodes;
+        DurationEps = durationEps;
+        DateStar = dateStar;
+        DateEnd = dateEnd;
+        Adaptation = adaptation;
+        Premiered = premiered;
+        Aired = aired;
+        Demographic = demographic;
+        this.source = source;
+        Rating = rating;
+        Licensors = licensors;
+        Status = status;
+        Theme = theme;
+        Season = season;
+        TypeDisplay = typeDisplay;
+    }
 }

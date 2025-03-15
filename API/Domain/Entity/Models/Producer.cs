@@ -12,7 +12,6 @@ public class Producer
     
     //int
     public int Year { get; set; }
-    public int
     
     //Date
     public DateTime BirthDateProducer { get; set; }
