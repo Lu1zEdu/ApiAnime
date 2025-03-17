@@ -13,4 +13,9 @@ namespace API.Infrastructure.Mapper;
             user.Rating = rating;
             return user;
         }
+
+        public static User ToUserEntity(this User user)
+        {
+            return user;
+        }
     }

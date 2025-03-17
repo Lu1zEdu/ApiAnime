@@ -59,6 +59,7 @@ public class UserService
         _userRepository.CreateUserAsync(user);
         return true;
     }
+    
     // Desativar usuário
     public bool DeactivateUser(Guid userId)
     {

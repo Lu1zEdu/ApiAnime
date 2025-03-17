@@ -24,7 +24,7 @@ public class AnimeMapper
             Producers = anime.Producers.Select(p => p.Studios).ToList(),
             Studios = anime.Studios.Select(s => s.NameProducer).ToList(),
             Demographic = anime.Demographic,
-            Source = anime.source,
+            Source = anime.Source,
             Rating = anime.Rating,
             Status = anime.Status,
             Season = anime.Season,

@@ -10,11 +10,6 @@ public class Score
     public int SumScore { get; set; } //Soma de score
     public int Popularity  { get; set; } //popularidade
 
-    public void SumUser(User user)
-    {
-        Console.Write($"O score {ScoreAnime} ");
-    }
-    
     // Constructor
     public Score(Guid idScore, int scoreAnime, User user, int sumScore, int popularity)
     {
@@ -23,5 +18,16 @@ public class Score
         IdUser = user.IdUser;
         SumScore = sumScore;
         Popularity = popularity;
+    }
+    
+    // Método para atualizar a soma e calcular a popularidade
+    public void UpdateScore(int newScore)
+    {
+        SumScore += newScore;
+        // Atualiza a popularidade se a soma das notas alcançar 1000
+        if (SumScore >= 1000)
+        {
+            Popularity = SumScore / 1000; // Calcula a média da popularidade
+        }
     }
 }

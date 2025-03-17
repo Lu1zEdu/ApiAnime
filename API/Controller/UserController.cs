@@ -2,8 +2,8 @@
 using API.Infrastructure.Service;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API.Controller
-{
+namespace API.Controller;
+
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
@@ -50,4 +50,3 @@ namespace API.Controller
             }
         }
     }
-}
