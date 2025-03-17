@@ -7,7 +7,7 @@ using API.Domain.Enum;
 namespace API.Domain.DTO;
 
 [Table("Users")]
-public class UserDto
+public class UserDto 
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

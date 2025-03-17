@@ -1,6 +1,6 @@
 using API.Domain.Entity;
 using System.Linq;
-using API.Domain.DTO;
+using API.DTO;
 
 namespace API.Infrastructure.Mapper;
 

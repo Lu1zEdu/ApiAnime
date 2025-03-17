@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using API.Domain.Enum;
 
-namespace API.Domain.DTO;
+namespace API.DTO;
 
 [Table("Anime")]
 public class AnimeDto

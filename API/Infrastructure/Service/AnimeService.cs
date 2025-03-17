@@ -11,4 +11,9 @@ public class AnimeService
     {
         _animeRepository = animeRepository;
     }
+
+    public void Delete(Guid id)
+    {
+        throw new NotImplementedException();
+    }
 }

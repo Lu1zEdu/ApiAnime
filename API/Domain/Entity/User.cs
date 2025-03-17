@@ -17,13 +17,17 @@ public class User
     //DateTime
     public DateTime BirthDate { get; set; } //
     
+    // Boolean
+    public Boolean Active { get; set; }
+    
     //Listas
     public List<Anime> Favorites { get; set; } = new List<Anime>();
     
     //Enum
     public Rating Rating { get; set; }
 
-    public User(Guid idUser, string firstName, string lastName, string username, string email, string password, DateTime birthDate, Rating rating)
+    // Construtor
+    public User(Guid idUser, string firstName, string lastName, string username, string email, string password, DateTime birthDate, Boolean active, Rating rating)
     {
         IdUser = idUser;
         FirstName = firstName;
@@ -32,6 +36,7 @@ public class User
         Email = email;
         Password = password;
         BirthDate = birthDate;
+        Active = true;
         Rating = rating;
     }
 }

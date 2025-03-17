@@ -40,6 +40,9 @@ public class UserMapping : IEntityTypeConfiguration<User>
             .HasMaxLength(50)
             .IsRequired();
         
+        builder.Property(u => u.Active)
+            .IsRequired();
+        
         builder.Property(x => x.BirthDate)
             .HasColumnName("BirthDate")
             .IsRequired();
