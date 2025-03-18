@@ -47,8 +47,10 @@ public class Anime
     public Licensors Licensors { get; set; }
     public Status Status { get; set; }
     public TypeDisplay TypeDisplay { get; set; }
+    public Score Score { get; set; }
+    public Ranked Ranked { get; set; }
 
-    
+
     // Constructor
     public Anime(Guid idAnime, string nameJapanese, string nameEnglish, string namePortugues, string synopsis, string synonyms, int episodes, int durationEps, int popularity, DateTime dateStar, DateTime dateEnd, Adaptation adaptation, Premiered premiered, Aired aired, Demographic demographic, Source source, Rating rating, Licensors licensors, Status status, TypeDisplay typeDisplay)
     {

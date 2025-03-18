@@ -15,7 +15,9 @@ public class Ranked
 
     //Int
     public int NumberRanked { get; set; }
-
+    
+    //Classe
+    public Anime Anime { get; set; }
     //Constructor
     public Ranked(Guid idRanked, int numberRanked , Anime anime)
     {
@@ -25,5 +27,6 @@ public class Ranked
         NameP = anime.NamePortugues;
         IdRanked = idRanked;
         NumberRanked = numberRanked;
+        Anime = anime;
     }
 }

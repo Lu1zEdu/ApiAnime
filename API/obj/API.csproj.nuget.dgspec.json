@@ -56,6 +56,10 @@
               "target": "Package",
               "version": "[9.0.3, )"
             },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[9.0.3, )"
+            },
             "Npgsql": {
               "target": "Package",
               "version": "[9.0.3, )"

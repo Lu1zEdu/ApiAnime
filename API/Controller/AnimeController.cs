@@ -1,6 +1,10 @@
 using API.Infrastructure.Service;
 using Microsoft.AspNetCore.Mvc;
-
+using API.Domain.Enum;
+using API.Domain.Entity;
+using System.Collections.Generic;
+using System.Linq;
+using System;
 
 namespace API.Controller;
 
@@ -27,37 +31,61 @@ public class AnimeController : ControllerBase
     {
         try
         {
-            var animes = _animeService.GetAllAnimes();  // Suponha que você tenha um método para pegar todos os animes
+            var animes = _animeService.GetAllAnimes();
 
-            // Filtrando por nome
+            // Filtro por nome
             if (!string.IsNullOrEmpty(name))
-                animes = animes.Where(a => a.NameEnglish.Contains(name, StringComparison.OrdinalIgnoreCase) ||
-                                           a.NameJapanese.Contains(name, StringComparison.OrdinalIgnoreCase) ||
-                                           a.NamePortugues.Contains(name, StringComparison.OrdinalIgnoreCase)).ToList();
+            {
+                animes = animes.Where(a =>
+                    (a.NameEnglish?.Contains(name, StringComparison.OrdinalIgnoreCase) ?? false) ||
+                    (a.NameJapanese?.Contains(name, StringComparison.OrdinalIgnoreCase) ?? false) ||
+                    (a.NamePortugues?.Contains(name, StringComparison.OrdinalIgnoreCase) ?? false)
+                ).ToList();
+            }
 
-            // Filtrando por ID
+            // Filtro por ID
             if (id.HasValue)
+            {
                 animes = animes.Where(a => a.IdAnime == id.Value).ToList();
+            }
 
-            // Filtrando por temporada
-            if (!string.IsNullOrEmpty(season))
-                animes = animes.Where(a => a.Season.Contains(season, StringComparison.OrdinalIgnoreCase)).ToList();
+            // Filtro por temporada
+            if (!string.IsNullOrEmpty(season) && Enum.TryParse<Season>(season, true, out var parsedSeason))
+            {
+                animes = animes.Where(a => a.Premiered?.Season == parsedSeason).ToList();
+            }
 
-            // Filtrando por gênero
+            // Filtro por gênero
             if (genres != null && genres.Any())
-                animes = animes.Where(a => a.Genres.Any(g => genres.Contains(g))).ToList();
+            {
+                animes = animes.Where(a =>
+                    a.Genres.Any(g => genres.Contains(g.Genre.ToString()))
+                ).ToList();
+            }
 
-            // Filtrando por ranked (popularidade ou status de classificação)
+            // Filtro por ranked
             if (!string.IsNullOrEmpty(ranked))
-                animes = animes.Where(a => a.Ranked.Contains(ranked, StringComparison.OrdinalIgnoreCase)).ToList();
+            {
+                animes = animes.Where(a =>
+                    (a.Ranked?.NameE?.Contains(ranked, StringComparison.OrdinalIgnoreCase) == true) ||
+                    (a.Ranked?.NameJ?.Contains(ranked, StringComparison.OrdinalIgnoreCase) == true) ||
+                    (a.Ranked?.NameP?.Contains(ranked, StringComparison.OrdinalIgnoreCase) == true)
+                ).ToList();
+            }
 
-            // Filtrando por score
+            // Filtro por score
             if (score.HasValue)
-                animes = animes.Where(a => a.Score >= score.Value).ToList();
+            {
+                animes = animes.Where(a => a.Score?.ScoreAnime >= score.Value).ToList();
+            }
 
-            // Filtrando por estúdios
+            // Filtro por estúdios
             if (studios != null && studios.Any())
-                animes = animes.Where(a => a.Studios.Any(s => studios.Contains(s))).ToList();
+            {
+                animes = animes.Where(a =>
+                    a.Studios.Any(s => studios.Contains(s.NameProducer.ToString()))
+                ).ToList();
+            }
 
             return Ok(animes);
         }
@@ -66,5 +94,40 @@ public class AnimeController : ControllerBase
             return BadRequest(new { message = ex.Message });
         }
     }
-}
 
+    [HttpPost]
+    public IActionResult Create([FromBody] Anime anime)
+    {
+        try
+        {
+            _animeService.Create(anime);
+            return Ok("Anime criado com sucesso!");
+        }
+        catch (ArgumentException ex)
+        {
+            return BadRequest(ex.Message);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, ex.Message);
+        }
+    }
+
+    [HttpDelete("{id}")]
+    public IActionResult Delete(Guid id)
+    {
+        try
+        {
+            _animeService.Delete(id);
+            return Ok("Anime excluído com sucesso!");
+        }
+        catch (ArgumentException ex)
+        {
+            return NotFound(ex.Message);
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, ex.Message);
+        }
+    }
+}

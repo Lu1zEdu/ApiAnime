@@ -7,11 +7,12 @@ namespace API.Controller;
 [ApiController]
 public class CharacterController : ControllerBase
 {
-    private readonly AnimeService _animeService;
+    private readonly CharacterService _characterService; // Serviço correto
 
-    public CharacterController(AnimeService animeService)
+    // Injeção correta do CharacterService
+    public CharacterController(CharacterService characterService)
     {
-        _animeService = animeService;
+        _characterService = characterService;
     }
 
     [HttpGet("search")]
@@ -22,20 +23,31 @@ public class CharacterController : ControllerBase
     {
         try
         {
-            var characters = _animeService.;  // Suponha que você tenha um método para pegar todos os personagens
+            var characters = _characterService.GetAllCharacters(); // Método correto
 
-            // Filtrando por nome
+            // Filtro por nome (propriedades corrigidas)
             if (!string.IsNullOrEmpty(name))
-                characters = characters.Where(c => c.NameEnglish.Contains(name, StringComparison.OrdinalIgnoreCase) ||
-                                                   c.NameJapanese.Contains(name, StringComparison.OrdinalIgnoreCase)).ToList();
+            {
+                characters = characters.Where(c => 
+                    c.NameCharactersE.Contains(name, StringComparison.OrdinalIgnoreCase) ||
+                    c.NameCharactersJ.Contains(name, StringComparison.OrdinalIgnoreCase)
+                ).ToList();
+            }
 
-            // Filtrando por ID
+            // Filtro por ID
             if (id.HasValue)
-                characters = characters.Where(c => c.Id == id.Value).ToList();
+            {
+                characters = characters.Where(c => c.IdCharacters == id.Value).ToList();
+            }
 
-            // Filtrando por nome do anime
+            // Filtro por nome do anime (acesso via propriedade de navegação)
             if (!string.IsNullOrEmpty(animeName))
-                characters = characters.Where(c => c.AnimeName.Contains(animeName, StringComparison.OrdinalIgnoreCase)).ToList();
+            {
+                characters = characters.Where(c => 
+                    c.Anime.NameEnglish.Contains(animeName, StringComparison.OrdinalIgnoreCase) ||
+                    c.Anime.NameJapanese.Contains(animeName, StringComparison.OrdinalIgnoreCase)
+                ).ToList();
+            }
 
             return Ok(characters);
         }

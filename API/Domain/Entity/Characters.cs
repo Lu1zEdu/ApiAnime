@@ -23,7 +23,8 @@ public class Characters
     
     //Enum
     public PositionCharacters  PositionCharacters { get; set; }
-    
+    public Anime Anime { get; set; }
+
     //Constructor
     public Characters(Guid idCharacters, string nameCharactersE, string nameCharactersJ, string urlImage, string describeCharacters, DateTime birthdateCharacters, int height, int weight, PositionCharacters positionCharacters)
     {
@@ -36,5 +37,6 @@ public class Characters
         Height = height;
         Weight = weight;
         PositionCharacters = positionCharacters;
+        Anime = Anime;
     }
 }
