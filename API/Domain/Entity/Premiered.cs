@@ -1,6 +1,6 @@
 ﻿using API.Domain.Enum;
 
-namespace API.Domain.Entity.Models.Concluidos;
+namespace API.Domain.Entity;
 
 public class Premiered
 {

@@ -10,13 +10,10 @@ public class ScoreMapping : IEntityTypeConfiguration<Score>
     {
         builder.ToTable("Score");
 
-        builder.HasKey("IdScore");
-        
-        builder.Property(x => x.IdScore)
+        builder.HasKey(s => s.IdScore);
+
+        builder.Property(s => s.IdScore)
             .HasColumnName("IdScore")
-            .HasColumnType("Guid")
             .IsRequired();
-        
-        
     }
 }

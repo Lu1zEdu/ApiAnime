@@ -39,4 +39,5 @@ public class User
         Active = true;
         Rating = rating;
     }
+    
 }

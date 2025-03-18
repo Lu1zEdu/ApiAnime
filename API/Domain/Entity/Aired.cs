@@ -1,4 +1,4 @@
-﻿namespace API.Domain.Entity.Models.Concluidos;
+﻿namespace API.Domain.Entity;
 
 public class Aired
 {

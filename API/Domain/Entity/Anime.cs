@@ -1,5 +1,4 @@
 using API.Domain.Entity.Models;
-using API.Domain.Entity.Models.Concluidos;
 using API.Domain.Enum;
 
 namespace API.Domain.Entity;
@@ -34,6 +33,7 @@ public class Anime
     public List<GenreAnime> Genres { get; set; } = new List<GenreAnime>();
     public List<Producer> Producers { get; set; } = new List<Producer>();
     public List<Producer> Studios { get; set; } = new List<Producer>();
+    public List<Themes> Themes { get; set; } = new List<Themes>();
 
     // Classes relacionadas ao Anime (Adaptação, Premiered, Aired)
     public Adaptation Adaptation { get; set; }
@@ -46,13 +46,11 @@ public class Anime
     public Rating Rating { get; set; }
     public Licensors Licensors { get; set; }
     public Status Status { get; set; }
-    public Themes Theme { get; set; }
-    public Season Season { get; set; }
     public TypeDisplay TypeDisplay { get; set; }
 
     
     // Constructor
-    public Anime(Guid idAnime, string nameJapanese, string nameEnglish, string namePortugues, string synopsis, string synonyms, int episodes, int durationEps, DateTime dateStar, DateTime dateEnd, Adaptation adaptation, Premiered premiered, Aired aired, Demographic demographic, Source source, Rating rating, Licensors licensors, Status status, Themes theme, Season season, TypeDisplay typeDisplay)
+    public Anime(Guid idAnime, string nameJapanese, string nameEnglish, string namePortugues, string synopsis, string synonyms, int episodes, int durationEps, int popularity, DateTime dateStar, DateTime dateEnd, Adaptation adaptation, Premiered premiered, Aired aired, Demographic demographic, Source source, Rating rating, Licensors licensors, Status status, TypeDisplay typeDisplay)
     {
         IdAnime = idAnime;
         NameJapanese = nameJapanese;
@@ -62,6 +60,7 @@ public class Anime
         Synonyms = synonyms;
         Episodes = episodes;
         DurationEps = durationEps;
+        Popularity = popularity;
         DateStar = dateStar;
         DateEnd = dateEnd;
         Adaptation = adaptation;
@@ -72,8 +71,6 @@ public class Anime
         Rating = rating;
         Licensors = licensors;
         Status = status;
-        Theme = theme;
-        Season = season;
         TypeDisplay = typeDisplay;
     }
 }

@@ -50,5 +50,9 @@ public class UserMapping : IEntityTypeConfiguration<User>
         builder.Property(x => x.Rating)
             .HasColumnName("Rating")
             .IsRequired();
+        
+        builder.HasMany(u => u.Favorites)
+            .WithMany()
+            .UsingEntity(j => j.ToTable("UserFavorites"));
     }
 }
